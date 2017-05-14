@@ -82,7 +82,8 @@ namespace MetroNavigation
         {
             lineNbr = line;
             //Reading number of MetroLines
-            stationsNbr = Convert.ToInt16(Regex.Replace(streamReader.ReadLine(), "Line" + line + "Stations=", String.Empty));
+            string str = streamReader.ReadLine();
+            stationsNbr = Convert.ToInt16(Regex.Replace(str, "Line" + line + "Stations=", String.Empty));
 
             stations = new Station[stationsNbr];
             //Reading all stations
