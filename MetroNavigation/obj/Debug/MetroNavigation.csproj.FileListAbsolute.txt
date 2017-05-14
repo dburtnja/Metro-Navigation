@@ -1,0 +1,17 @@
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Debug\MetroNavigation.exe.config
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Debug\MetroNavigation.exe
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Debug\MetroNavigation.pdb
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.csprojResolveAssemblyReference.cache
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MainWindow.g.cs
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\App.g.cs
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation_MarkupCompile.cache
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation_MarkupCompile.lref
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MainWindow.baml
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.g.resources
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.Properties.Resources.resources
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.csproj.GenerateResource.Cache
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.exe
+c:\users\denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation.pdb
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Debug\map\Map.txt
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Debug\MetroNavigation_Content.g.cs
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Debug\image\train.png
