@@ -21,12 +21,29 @@ namespace MetroNavigation
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Point start;
-        private Point end;
+        private Station start;
+        private Station end;
+        private Metro metro = new Metro();
+        private TextBlock textStart = new TextBlock();
+        private TextBlock textEnd = new TextBlock();
+        private Rectangle aRectangle = new Rectangle();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            textStart.Text = "Відправлення з: не вибрана";
+            textStart.Foreground = new SolidColorBrush(Colors.Black);
+            Canvas.SetLeft(textStart, 650);
+            Canvas.SetTop(textStart, 30);
+            MainGrid.Children.Add(textStart);
+
+            textEnd.Text = "Прибуття в: не вибрана";
+            textEnd.Foreground = new SolidColorBrush(Colors.Black);
+            Canvas.SetLeft(textEnd, 650);
+            Canvas.SetTop(textEnd, 50);
+            MainGrid.Children.Add(textEnd);
+
         }
 
         private void animation(PathFigure pFigure, int animationTime)
@@ -36,9 +53,8 @@ namespace MetroNavigation
             NameScope.SetNameScope(this, new NameScope());
 
             // Create a rectangle.
-            Rectangle aRectangle = new Rectangle();
-            aRectangle.Width = 30;
-            aRectangle.Height = 30;
+            aRectangle.Width = 20;
+            aRectangle.Height = 20;
             aRectangle.Fill = new ImageBrush(new BitmapImage(new Uri(@"image/train.png", UriKind.Relative)));
 
             // Create a transform. This transform
@@ -119,18 +135,33 @@ namespace MetroNavigation
 
         private void MouseLeftButtonDownOnGrid(object sender, MouseButtonEventArgs e)
         {
-            if (start.Equals(new Point()))
-                start = Mouse.GetPosition(MainGrid);
-            else
+            if (start == null)
             {
-                end = Mouse.GetPosition(MainGrid);
-                Metro metro = new Metro();
-                PathFigure pFigure = metro.findPath(start, end);
-                MessageBox.Show("Mouse on: x = " + start.X + " y = " + start.Y);
-                if (pFigure == null)
-                    MessageBox.Show("Помилка пошуку шляху");
-                else
-                    animation(pFigure, pFigure.Segments.Count);
+                if ((start = metro.findStationInLine(Mouse.GetPosition(MainGrid))) != null)
+                {
+                    textStart.Text = "Відправлення з " + start.stationName;
+                }
+            }
+            else if (end == null)
+            {
+                if ((end = metro.findStationInLine(Mouse.GetPosition(MainGrid))) != null)
+                {
+                    textEnd.Text = "Прибуття в " + end.stationName;
+
+                    PathFigure pFigure = metro.findPath(start, end);
+                    if (pFigure == null)
+                        MessageBox.Show("Помилка пошуку шляху");
+                    else
+                        animation(pFigure, pFigure.Segments.Count);
+                }
+            }
+            else if (end != null && start != null)
+            {
+                textStart.Text = "Відправлення з: не вибрана";
+                textEnd.Text = "Прибуття в: не вибрана";
+                end = null;
+                start = null;
+                MainGrid.Children.Remove(aRectangle);
             }
         }
 
@@ -138,8 +169,6 @@ namespace MetroNavigation
         {
             Point p = Mouse.GetPosition(MainGrid);
             MessageBox.Show("Mouse on: x = " + p.X + " y = " + p.Y);
-            start = new Point();
-            end = new Point();
         }
     }
 }

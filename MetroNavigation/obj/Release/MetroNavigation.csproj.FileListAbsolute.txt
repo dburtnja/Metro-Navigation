@@ -1,0 +1,17 @@
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Release\image\train.png
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Release\map\Map.txt
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Release\MetroNavigation.exe.config
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Release\MetroNavigation.exe
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\bin\Release\MetroNavigation.pdb
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.csprojResolveAssemblyReference.cache
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MainWindow.g.cs
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\App.g.cs
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation_Content.g.cs
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation_MarkupCompile.cache
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation_MarkupCompile.lref
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MainWindow.baml
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.g.resources
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.Properties.Resources.resources
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.csproj.GenerateResource.Cache
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.exe
+C:\Users\Denys\documents\visual studio 2017\Projects\MetroNavigation\MetroNavigation\obj\Release\MetroNavigation.pdb

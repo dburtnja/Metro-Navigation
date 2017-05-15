@@ -31,23 +31,19 @@ namespace MetroNavigation
             }
         }
 
-        public PathFigure findPath(Point start, Point end)
+        public Station findStationInLine(Point p)
         {
-            Station startStation = null;
-            Station endStation = null;
+            Station station = null;
 
-            //find start station
-            for (int i = 0; i < linesNbr && startStation == null; i++)
+            for (int i = 0; i < linesNbr && station == null; i++)
             {
-                startStation = lines[i].findStation(start, 0);
+                station = lines[i].findStation(p, 0);
             }
+            return station;
+        }
 
-            //find end station
-            for (int i = 0; i < linesNbr && endStation == null; i++)
-            {
-                endStation = lines[i].findStation(end, 0);
-            }
-
+        public PathFigure findPath(Station startStation, Station endStation)
+        {
             if (startStation == null || endStation == null)
                 return null;
 
@@ -186,11 +182,18 @@ namespace MetroNavigation
             else
             {
                 string[] array = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                stationNbr = Convert.ToInt16(array[0]);
-                stationName = array[1];
-                stationCoordinates = new Point { X = Convert.ToInt16(array[2]), Y = Convert.ToInt16(array[3]) };
-                if (array.Length == 5)
-                    transferStation = Convert.ToInt16(array[4]);
+                if (array.Length == 2)
+                {
+                    stationCoordinates = new Point { X = Convert.ToInt16(array[0]), Y = Convert.ToInt16(array[1]) };
+                }
+                else
+                {
+                    stationNbr = Convert.ToInt16(array[0]);
+                    stationName = array[1];
+                    stationCoordinates = new Point { X = Convert.ToInt16(array[2]), Y = Convert.ToInt16(array[3]) };
+                    if (array.Length == 5)
+                        transferStation = Convert.ToInt16(array[4]);
+                }
             }
         }
 

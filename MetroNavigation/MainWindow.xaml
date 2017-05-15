@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="MainWindow" Height="800" Width="1000">
-    <Canvas x:Name="MainGrid" MouseLeftButtonDown="MouseLeftButtonDownOnGrid" MouseRightButtonDown="MouseRightButtonDownOnGrid">
+    <Canvas x:Name="MainGrid" MouseLeftButtonDown="MouseLeftButtonDownOnGrid" MouseRightButtonDown="MouseRightButtonDownOnGrid" d:IsLocked="True">
         <Canvas.Background>
             <ImageBrush ImageSource="image/KyivMetroMap.jpg"/>
         </Canvas.Background>
