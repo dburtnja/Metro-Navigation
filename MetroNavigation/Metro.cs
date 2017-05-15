@@ -39,13 +39,13 @@ namespace MetroNavigation
             //find start station
             for (int i = 0; i < linesNbr && startStation == null; i++)
             {
-                startStation = lines[i].findStation(start);
+                startStation = lines[i].findStation(start, 0);
             }
 
             //find end station
             for (int i = 0; i < linesNbr && endStation == null; i++)
             {
-                endStation = lines[i].findStation(end);
+                endStation = lines[i].findStation(end, 0);
             }
 
             if (startStation == null || endStation == null)
@@ -58,6 +58,8 @@ namespace MetroNavigation
 
             if ((int)(startStation.stationNbr / 100) == (int)(endStation.stationNbr / 100))
             {
+                //when start and end station are on same line
+
                 PathSegmentCollection pathCollection = new PathSegmentCollection();
 
                 int line = (int)(startStation.stationNbr / 100) - 1;
@@ -67,8 +69,27 @@ namespace MetroNavigation
                 pFigure.Segments = pathCollection;
                 return pFigure;
             }
+            else
+            {
+                //when start and end station are on different lines
 
-            return pFigure;
+                Station transferStationFrom;
+                Station transferStationTill;
+                PathSegmentCollection pathCollection = new PathSegmentCollection();
+
+                int line1 = (int)(startStation.stationNbr / 100) - 1;
+                int line2 = (int)(endStation.stationNbr / 100) - 1;
+                if ((transferStationFrom = lines[line1].findTransferStation(line2 + 1)) == null)
+                    return null;
+                if ((transferStationTill = lines[line2].findStation(new Point(), transferStationFrom.transferStation)) == null)
+                    return null;
+                lines[line1].writeLineSegment(pathCollection, startStation, transferStationFrom);
+                lines[line2].writeLineSegment(pathCollection, transferStationTill, endStation);
+                if (pathCollection == null)
+                    return null;
+                pFigure.Segments = pathCollection;
+                return pFigure;
+            }
         }
     }
 
@@ -93,17 +114,21 @@ namespace MetroNavigation
             }
         }
 
-        public Station findStation(Point p)
+        public Station findStation(Point p, int nbr)
         {
             Station station = null;
 
             for (int i = 0; i < stationsNbr && station == null; i++)
             {
-                station = stations[i].isInRange(p);
+                if (p != null)
+                    station = stations[i].isInRange(p);
+                if (nbr != 0 && nbr == stations[i].stationNbr)
+                    return stations[i];
             }
             return station;
         }
 
+        //when start and end station are on same line
         public void writeLineSegment(PathSegmentCollection pathCollection, Station from, Station till)
         {
             int fromNbr = from.arrayNbr;
@@ -121,6 +146,7 @@ namespace MetroNavigation
             }
             else if (fromNbr > till.arrayNbr)
             {
+                //adding all points
                 while (fromNbr >= till.arrayNbr)
                 {
                     LineSegment lineSegment = new LineSegment();
@@ -131,6 +157,16 @@ namespace MetroNavigation
             }
             else
                 pathCollection = null;
+        }
+
+        public Station findTransferStation(int lineToChange)
+        {
+            for (int i = 0; i < stationsNbr; i++)
+            {
+                if (lineToChange == (int)(stations[i].transferStation / 100))
+                    return stations[i];
+            }
+            return null;
         }
     }
 
